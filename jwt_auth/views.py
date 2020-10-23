@@ -45,8 +45,7 @@ class Login(APIView):
             {'sub': user.id, 'exp': int(dt.strftime('%s'))},
             settings.SECRET_KEY,
             algorithm='HS256'
-    )
-    
+        )
     
     return Response({
       'token': token, 'message': f'Welcome back {user.username}'
