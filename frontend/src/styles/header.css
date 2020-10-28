@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+  
+}
+.head
+{
+  width: 100%;
+  height: 20vh;
+  display: flex;
+
+  position: relative;
+  justify-content: center;
+  align-items: flex-end;
+
+}
+
+.webName
+{
+  display: flex;
+  
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 19.5px;
+  height: 35px;
+  cursor: pointer;
+}
+.toggleBox
+{
+  width: 10%;
+  height: 35px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.toggleButton
+{
+  width: 100%;
+  height: 35px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.logout
+{
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 15px;
+  left: 30px;
+  
+}
+
+.user-menu
+{
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  z-index: 3;
+  
+  background-color: lightgray;
+  animation-name: show;
+  animation-duration: 0.5s;
+  margin-right: -0px;
+  border-radius: 12px 12px 12px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 1px solid gray;
+}
+@keyframes show {
+  from {width: 0px;}
+  to {width: calc(100% + 30px);}
+}
+
+.user-menu > .nav
+{
+  width: 100%;
+  min-height: 5.5vh;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14.5px;
+  cursor: pointer;
+  text-align: center;
+
+  border: none;
+
+}
+.nav:hover
+{
+  color: green;
+  font-weight: bold;
+}
+.user-menu > hr
+{
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  
+}
+
