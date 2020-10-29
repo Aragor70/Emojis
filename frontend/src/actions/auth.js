@@ -1,5 +1,5 @@
 import axios from 'axios'
-import setHeader from '../utils/setHeader'
+/* import setHeader from '../utils/setHeader' */
 
 
 
@@ -11,19 +11,23 @@ export const login = async(formData, history) => {
       'Content-Type': 'application/json'
     }
   }
-  const res = await axios.post('/api/auth/login/', formData, config)
-  
-  if (res.data) {
-    await localStorage.setItem('token', res.data.token)
+  try {
+    const res = await axios.post('/api/auth/login/', formData, config)
+    
+    if (res.data) {
+      await localStorage.setItem('token', res.data.token)
 
-    if (localStorage.token) {
-      setHeader(localStorage.token)
+      /* if (localStorage.token) {
+        setHeader(localStorage.token)
+      } */
     }
+    console.log('user logged in')
+    history.push('/')
+    
+    return res.data
+  } catch (err) {
+    return { error: 'Invalid credentials.' }
   }
-  console.log('user logged in')
-  history.push('/')
-  
-  return res.data
 }
 export const register = async(formData, history) => {
   const config = {
@@ -31,20 +35,24 @@ export const register = async(formData, history) => {
       'Content-Type': 'application/json'
     }
   }
-  const res = await axios.post('/api/auth/register/', formData, config)
+  try {
+    const res = await axios.post('/api/auth/register/', formData, config)
 
 
-  history.push('/')
+    history.push('/')
 
-  console.log('hello user')
-  return res.data
+    console.log('hello user')
+    return res.data
+  } catch (err) {
+    return { error: 'User already exists.' }
+  }
 }
 // remove token from the local storage
 export const logout = async(history) => {
   
   await localStorage.removeItem('token')
 
-  setHeader()
+  /* setHeader() */
   console.log('user logged out')
   return history.push('/')
 }
